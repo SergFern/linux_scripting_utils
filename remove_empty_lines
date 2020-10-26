@@ -1,0 +1,4 @@
+#!/bin/bash
+#removes empty lines in a text file.
+
+awk NF $1

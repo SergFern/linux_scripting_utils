@@ -1,0 +1,7 @@
+#!/bin/bash
+# Prints the name of a file given.
+
+filenameFile=$1
+extensionFile="${filenameFile##*.}"
+@filenameFile="${filenameFile%.*}"
+echo $extensionFile

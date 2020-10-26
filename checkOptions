@@ -1,0 +1,52 @@
+#!/bin/bash
+
+version="program version #0.1
+Written by bioinfo-serg."
+
+usage="Usage: source $0 [STRING] [OPTIONS] [OPTION]...
+Description:
+
+Auxiliary script for bash script building.
+Checks whether a number of options [OPTIONS] given are present in the string of options [STRING] provided to __main__.
+
+Mandatory arguments to long options are mandatory for short options too.
+
+      [STRING]	    set of options provided to __main__, ussually presented as dollar@ variable.
+      [OPTION]	    options to be on the lookout for, variant to the function of __main__
+      --help        display this help and exit
+      --version     display version information and exit
+
+With no arguments display --help
+
+Report bugs to <your psycologist>."
+
+case $1 in
+	--help) echo "$usage";;
+	--version) echo "$version";;
+	"") echo "$usage";;
+	*)
+		case $2 in
+			"")
+				echo "ERROR: no options to check were provided... printing usage"
+				echo "$usage";;
+			*)
+				STRING="$1"
+				PASS="uncertain"
+
+				shift
+
+				for i
+					do if [[ "$STRING" != *"$i"* ]]; then
+						export OPTION="$i"
+						export PASS="FALSE"
+					fi
+				done
+
+				if [[ $PASS == "uncertain" ]]; then
+					export PASS="TRUE"
+				fi
+			;;
+		esac
+esac
+
+

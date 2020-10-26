@@ -1,0 +1,4 @@
+#!/bin/bash
+#Converts comma delimited files to tab delimited files
+
+sed -E 's/("([^"]*)")?,/\2\t/g' $1

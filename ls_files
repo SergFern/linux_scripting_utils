@@ -1,0 +1,4 @@
+#!/bin/bash
+#lists all files in a directory, excluding hidden and directories.
+
+ls -p | grep -v /

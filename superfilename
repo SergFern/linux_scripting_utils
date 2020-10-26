@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Prints the name of a file given.
+
+FILENAME=`echo "$1" | cut -d'.' -f1`
+
+echo $FILENAME
